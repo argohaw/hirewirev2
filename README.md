@@ -2,7 +2,7 @@
 
 A production-ready job application tracking dashboard with Google Sheets sync, offline support, and a polished UI.
 
-![HireWire Dashboard](https://via.placeholder.com/800x400?text=HireWire+Dashboard)
+![HireWire Dashboard](https://google.com)
 
 ## Features
 
