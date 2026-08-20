@@ -143,13 +143,13 @@ function delete_(sheet, id) {
   }
 }
 
-function json_(payload) {
-  const output = ContentService.createTextOutput(JSON.stringify(payload));
-  output.setMimeType(ContentService.MimeType.JSON);
-  return output;
+// Add doOptions to resolve browser preflight checks
+function doOptions(e) {
+  return ContentService.createTextOutput("")
+    .setMimeType(ContentService.MimeType.TEXT);
 }
 
-function doOptions(e) {
-  const output = ContentService.createTextOutput('');
-  return output;
+function json_(payload) {
+  return ContentService.createTextOutput(JSON.stringify(payload))
+    .setMimeType(ContentService.MimeType.JSON);
 }

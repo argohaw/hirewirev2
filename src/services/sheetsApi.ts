@@ -195,34 +195,45 @@ export class GoogleSheetsService {
   }
 
   private async request(body: SheetsMutationBody): Promise<SheetsListResponse> {
-    // Use GET for list action to avoid CORS issues with Apps Script
-    if (body.action === 'list') {
-      const params = new URLSearchParams({
-        body: JSON.stringify(body),
-      });
-      const url = `${this.endpoint}?${params.toString()}`;
-      const response = await fetch(url, {
-        method: 'GET',
-      });
-      return this.handleResponse(response);
-    }
-
-    // Use POST for mutations
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
+    // Ensure apiKey is attached to all request payloads
+    const payloadWithKey = {
+      ...body,
+      apiKey: this.apiKey || undefined,
+    };
+
     try {
+      // 1. GET Request for 'list' action to bypass Google's POST CORS limitations
+      if (body.action === 'list') {
+        const params = new URLSearchParams({
+          body: JSON.stringify(payloadWithKey),
+        });
+        const url = `${this.endpoint}?${params.toString()}`;
+
+        const response = await fetch(url, {
+          method: 'GET',
+          redirect: 'follow', // Crucial for handling Google 302 redirects
+          signal: controller.signal,
+        });
+
+        return await this.handleResponse(response);
+      }
+
+      // 2. POST Request for mutations ('create', 'update', 'delete', 'updateStatus')
       const response = await fetch(this.endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow', // Crucial for handling Google 302 redirects
+        headers: {
+          // 'text/plain' prevents browser from triggering restrictive CORS preflight (OPTIONS)
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
         signal: controller.signal,
-        body: JSON.stringify({
-          ...body,
-          apiKey: this.apiKey || undefined,
-        }),
+        body: JSON.stringify(payloadWithKey),
       });
 
-      return this.handleResponse(response);
+      return await this.handleResponse(response);
     } catch (error) {
       if (error instanceof DOMException && error.name === 'AbortError') {
         throw new Error('Sheets request timed out.');
