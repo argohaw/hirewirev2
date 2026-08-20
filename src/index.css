@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --color-midnight: #0d0d0d;
+  --color-ivory: #fffff0;
+  --color-pure: #ffffff;
+  --color-gold: #d4af37;
+  --color-dynamic-red: #e53e3e;
+  --color-crimson: #990000;
+  --color-neon: #39ff14;
+
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Syne', 'Outfit', system-ui, sans-serif;
+
+  --shadow-gold: 0 0 0 1px color-mix(in srgb, #d4af37 35%, transparent),
+    0 18px 40px color-mix(in srgb, #0d0d0d 35%, transparent);
+}
+
+:root {
+  --hw-black: #0d0d0d;
+  --hw-ivory: #fffff0;
+  --hw-white: #ffffff;
+  --hw-gold: #d4af37;
+  --hw-red: #e53e3e;
+  --hw-crimson: #990000;
+  --hw-neon: #39ff14;
+  --bg: var(--hw-ivory);
+  --bg-elevated: var(--hw-white);
+  --bg-muted: color-mix(in srgb, var(--hw-black) 6%, var(--hw-ivory));
+  --fg: var(--hw-black);
+  --fg-muted: color-mix(in srgb, var(--hw-black) 62%, var(--hw-ivory));
+  --border: color-mix(in srgb, var(--hw-black) 14%, var(--hw-ivory));
+  --accent: var(--hw-gold);
+  --accent-strong: color-mix(in srgb, var(--hw-gold) 82%, var(--hw-black));
+  --danger: var(--hw-red);
+  --glow: color-mix(in srgb, var(--hw-gold) 28%, transparent);
+  --header-bg: color-mix(in srgb, var(--hw-ivory) 86%, transparent);
+  --chip-applied: color-mix(in srgb, var(--hw-gold) 18%, var(--hw-white));
+  --chip-interviewing: color-mix(in srgb, var(--hw-gold) 28%, var(--hw-white));
+  --chip-offered: color-mix(in srgb, var(--hw-neon) 22%, var(--hw-white));
+  --chip-rejected: color-mix(in srgb, var(--hw-red) 16%, var(--hw-white));
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: var(--hw-black);
+  --bg-elevated: color-mix(in srgb, var(--hw-white) 5%, var(--hw-black));
+  --bg-muted: color-mix(in srgb, var(--hw-ivory) 8%, var(--hw-black));
+  --fg: var(--hw-ivory);
+  --fg-muted: color-mix(in srgb, var(--hw-ivory) 62%, var(--hw-black));
+  --border: color-mix(in srgb, var(--hw-ivory) 14%, var(--hw-black));
+  --accent: var(--hw-gold);
+  --accent-strong: var(--hw-crimson);
+  --danger: var(--hw-crimson);
+  --glow: color-mix(in srgb, var(--hw-neon) 18%, transparent);
+  --header-bg: color-mix(in srgb, var(--hw-black) 78%, transparent);
+  --chip-applied: color-mix(in srgb, var(--hw-gold) 18%, var(--hw-black));
+  --chip-interviewing: color-mix(in srgb, var(--hw-crimson) 28%, var(--hw-black));
+  --chip-offered: color-mix(in srgb, var(--hw-neon) 16%, var(--hw-black));
+  --chip-rejected: color-mix(in srgb, var(--hw-red) 22%, var(--hw-black));
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  transition:
+    background-color 420ms ease,
+    color 420ms ease;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+* {
+  border-color: var(--border);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--hw-gold) 55%, transparent);
+  color: var(--hw-black);
+}
+
+@layer components {
+  .hw-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .hw-input {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    background: var(--bg-muted);
+    color: var(--fg);
+    padding: 0.7rem 0.9rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .hw-input:focus {
+    border-color: var(--hw-gold);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--hw-gold) 28%, transparent);
+  }
+
+  .hw-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+}
