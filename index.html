@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HireWire — a production job application tracker with Google Sheets sync, live filters, and a dual-theme dashboard."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>HireWire — Job Tracker</title>
+    <script type="module" crossorigin src="/assets/index-CqBIjwnv.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DcUA8YSQ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      try {
+        var theme = localStorage.getItem('hirewire.theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      } catch (e) {}
+    </script>
+  </body>
+</html>
