@@ -2,7 +2,7 @@
 
 A production-ready job application tracking dashboard with Google Sheets sync, offline support, and a polished UI.
 
-![HireWire Dashboard](https://google.com)
+![HireWire Dashboard](https://argohaw.github.io/hirewirev2/)
 
 ## Features
 
