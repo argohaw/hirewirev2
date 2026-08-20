@@ -4,6 +4,7 @@ import { useJobs } from '../../context/JobsContext';
 import { useTheme } from '../../context/ThemeContext';
 import GradientText from '../react-bits/GradientText';
 import type { JobStatus } from '../../types/job';
+import AppLogo from '../../assets/applogo.svg';
 
 const NAV: Array<{ label: string; status: JobStatus | 'all' }> = [
   { label: 'Dashboard', status: 'all' },
@@ -22,7 +23,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--header-bg)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:gap-6">
         <a href="#dashboard" className="flex items-center gap-3">
-          <img src="/logo.svg" alt="HireWire" className="h-10 w-10" />
+          <img src={AppLogo} alt="HireWire" className="h-10 w-10" />
           <div>
             <GradientText className="font-display text-xl font-bold tracking-tight">
               HireWire

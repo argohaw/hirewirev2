@@ -26,40 +26,47 @@
   --hw-red: #e53e3e;
   --hw-crimson: #990000;
   --hw-neon: #39ff14;
+  
+  /* Status colors */
+  --hw-applied: #4169E1;      /* Light Royal Blue */
+  --hw-interviewing: #FFA500; /* Yellowish Orange */
+  --hw-offered: #7FFF00;      /* Pista Green */
+  --hw-rejected: #FF2800;     /* Ferrari Red */
+
   --bg: var(--hw-ivory);
   --bg-elevated: var(--hw-white);
-  --bg-muted: color-mix(in srgb, var(--hw-black) 6%, var(--hw-ivory));
-  --fg: var(--hw-black);
-  --fg-muted: color-mix(in srgb, var(--hw-black) 62%, var(--hw-ivory));
-  --border: color-mix(in srgb, var(--hw-black) 14%, var(--hw-ivory));
-  --accent: var(--hw-gold);
-  --accent-strong: color-mix(in srgb, var(--hw-gold) 82%, var(--hw-black));
-  --danger: var(--hw-red);
-  --glow: color-mix(in srgb, var(--hw-gold) 28%, transparent);
-  --header-bg: color-mix(in srgb, var(--hw-ivory) 86%, transparent);
-  --chip-applied: color-mix(in srgb, var(--hw-gold) 18%, var(--hw-white));
-  --chip-interviewing: color-mix(in srgb, var(--hw-gold) 28%, var(--hw-white));
-  --chip-offered: color-mix(in srgb, var(--hw-neon) 22%, var(--hw-white));
-  --chip-rejected: color-mix(in srgb, var(--hw-red) 16%, var(--hw-white));
+  --bg-muted: color-mix(in srgb, var(--hw-black) 12%, var(--hw-ivory));
+  --fg: #1a1a1a;
+  --fg-muted: #525252;
+  --border: #d4d4d4;
+  --accent: var(--hw-applied);
+  --accent-strong: color-mix(in srgb, var(--hw-applied) 82%, var(--hw-black));
+  --danger: var(--hw-rejected);
+  --glow: color-mix(in srgb, var(--hw-applied) 28%, transparent);
+  --header-bg: rgba(255, 255, 240, 0.9);
+  --chip-applied: color-mix(in srgb, var(--hw-applied) 18%, var(--hw-white));
+  --chip-interviewing: color-mix(in srgb, var(--hw-interviewing) 22%, var(--hw-white));
+  --chip-offered: color-mix(in srgb, var(--hw-offered) 20%, var(--hw-white));
+  --chip-rejected: color-mix(in srgb, var(--hw-rejected) 18%, var(--hw-white));
   color-scheme: light;
 }
 
 [data-theme='dark'] {
   --bg: var(--hw-black);
-  --bg-elevated: color-mix(in srgb, var(--hw-white) 5%, var(--hw-black));
-  --bg-muted: color-mix(in srgb, var(--hw-ivory) 8%, var(--hw-black));
-  --fg: var(--hw-ivory);
-  --fg-muted: color-mix(in srgb, var(--hw-ivory) 62%, var(--hw-black));
-  --border: color-mix(in srgb, var(--hw-ivory) 14%, var(--hw-black));
-  --accent: var(--hw-gold);
-  --accent-strong: var(--hw-crimson);
-  --danger: var(--hw-crimson);
-  --glow: color-mix(in srgb, var(--hw-neon) 18%, transparent);
-  --header-bg: color-mix(in srgb, var(--hw-black) 78%, transparent);
-  --chip-applied: color-mix(in srgb, var(--hw-gold) 18%, var(--hw-black));
-  --chip-interviewing: color-mix(in srgb, var(--hw-crimson) 28%, var(--hw-black));
-  --chip-offered: color-mix(in srgb, var(--hw-neon) 16%, var(--hw-black));
-  --chip-rejected: color-mix(in srgb, var(--hw-red) 22%, var(--hw-black));
+  --bg-elevated: color-mix(in srgb, var(--hw-white) 8%, var(--hw-black));
+  --bg-muted: color-mix(in srgb, var(--hw-ivory) 12%, var(--hw-black));
+  --fg: #e5e5e5;
+  --fg-muted: #a3a3a3;
+  --border: #404040;
+  --accent: var(--hw-applied);
+  --accent-strong: var(--hw-gold);
+  --danger: var(--hw-rejected);
+  --glow: color-mix(in srgb, var(--hw-applied) 28%, transparent);
+  --header-bg: rgba(13, 13, 13, 0.9);
+  --chip-applied: color-mix(in srgb, var(--hw-applied) 25%, var(--hw-black));
+  --chip-interviewing: color-mix(in srgb, var(--hw-interviewing) 30%, var(--hw-black));
+  --chip-offered: color-mix(in srgb, var(--hw-offered) 25%, var(--hw-black));
+  --chip-rejected: color-mix(in srgb, var(--hw-rejected) 30%, var(--hw-black));
   color-scheme: dark;
 }
 
