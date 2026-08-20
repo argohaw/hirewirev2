@@ -10,6 +10,7 @@ import JobFilters from './components/dashboard/JobFilters';
 import JobTable from './components/dashboard/JobTable';
 import JobDetailModal from './components/modals/JobDetailModal';
 import { useJobs } from './context/JobsContext';
+import { BrowserRouter } from 'react-router-dom';
 
 function MetricCard({
   label,
@@ -97,8 +98,11 @@ function DashboardShell() {
 
 export default function App() {
   return (
-    <ErrorBoundary>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+     <ErrorBoundary>
       <DashboardShell />
     </ErrorBoundary>
+    </BrowserRouter>
+    
   );
 }
